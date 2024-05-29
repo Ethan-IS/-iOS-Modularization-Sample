@@ -6,6 +6,7 @@
 //
 
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let project = Project(
     name: "Cores",
@@ -18,7 +19,8 @@ let project = Project(
             sources: ["Sources/**"],
             resources: ["Resources/**"],
             dependencies: [
-                .project(target: "Network", path: .relativeToRoot("Cores/Network")),
+                .core(.network),
+                .core(.designSystem)
             ]
         )
     ]

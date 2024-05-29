@@ -6,20 +6,10 @@
 //
 
 import ProjectDescription
+import ProjectDescriptionHelpers
 
-let project = Project(
-    name: "Network",
-    targets: [
-        .target(
-            name: "Network",
-            destinations: .iOS,
-            product: .framework,
-            bundleId: "io.tuist.Network",
-            sources: ["Sources/**"],
-            resources: ["Resources/**"],
-            dependencies: [
-                
-            ]
-        )
-    ]
+
+let project = Project.core(
+    name: Core.network.rawValue,
+    deploymentTargets: .iOS("17.0")
 )

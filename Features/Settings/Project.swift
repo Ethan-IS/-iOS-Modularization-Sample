@@ -6,20 +6,16 @@
 //
 
 import ProjectDescription
+import ProjectDescriptionHelpers
 
-let project = Project(
-    name: "Settings",
-    targets: [
-        .target(
-            name: "Settings",
-            destinations: .iOS,
-            product: .framework,
-            bundleId: "io.tuist.Settings",
-            sources: ["Sources/**"],
-            resources: ["Resources/**"],
-            dependencies: [
-                
-            ]
-        )
+
+
+let project = Project.feature(
+    name: Feature.settings.rawValue,
+    deploymentTargets: .iOS("17.0"),
+    dependencies: [
+        .core(.designSystem),
+        .util(.extensions),
+        .thirdParty(interface: .analytics)
     ]
 )

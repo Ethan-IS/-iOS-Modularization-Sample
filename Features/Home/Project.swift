@@ -6,20 +6,18 @@
 //
 
 import ProjectDescription
+import ProjectDescriptionHelpers
 
-let project = Project(
-    name: "Home",
-    targets: [
-        .target(
-            name: "Home",
-            destinations: .iOS,
-            product: .framework,
-            bundleId: "io.tuist.Home",
-            sources: ["Sources/**"],
-            resources: ["Resources/**"],
-            dependencies: [
-                
-            ]
-        )
+
+let project = Project.feature(
+    name: Feature.home.rawValue,
+    deploymentTargets: .iOS("17.0"),
+    dependencies: [
+        .core(.designSystem),
+        .thirdParty(interface: .analytics),
+        .feature(interface: .settings)
+    ],
+    presentationDependencies: [
+        .util(.dateUtil)
     ]
 )

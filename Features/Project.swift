@@ -6,6 +6,7 @@
 //
 
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let project = Project(
     name: "Features",
@@ -18,8 +19,10 @@ let project = Project(
             sources: ["Sources/**"],
             resources: ["Resources/**"],
             dependencies: [
-                .project(target: "Settings", path: .relativeToRoot("Features/Settings")),
-                .project(target: "Home", path: .relativeToRoot("Features/Home")),
+                .feature(interface: .home),
+                .feature(ui: .home),
+                .feature(interface: .settings),
+                .feature(ui: .settings)
             ]
         )
     ]

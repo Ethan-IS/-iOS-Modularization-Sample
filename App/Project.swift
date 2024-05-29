@@ -1,4 +1,5 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let project = Project(
     name: "Modularization",
@@ -16,9 +17,11 @@ let project = Project(
             sources: ["Sources/**"],
             resources: ["Resources/**"],
             dependencies: [
-                .project(target: "Features", path: .relativeToRoot("Features")),
-                .project(target: "Cores", path: .relativeToRoot("Cores")),
-                .project(target: "Data", path: .relativeToRoot("Data")),
+                .layers,
+                .features,
+                .cores,
+                .utils,
+                .thirdParties
             ]
         ),
         .target(
